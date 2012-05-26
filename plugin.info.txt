@@ -1,0 +1,8 @@
+base fwurgwiki
+author Brend Wanders
+email b.wanders@xs4all.nl
+date 2012-05-26
+name FWURG Wiki Miscellaneous
+desc Adds FWURG wiki customizations.
+url http://github.com/bwanders/fwurg-fwurgwiki
+

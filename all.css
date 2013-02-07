@@ -1,0 +1,15 @@
+.stratatype_faction a {
+    display: inline-block;
+    background-color: black;
+    border-radius: 128px;
+    vertical-align: middle;
+}
+
+.stratatype_faction a:hover {
+    background-color: white;
+}
+
+.stratatype_faction a.media img.media {
+    margin: 2px;
+    padding: 0;
+}

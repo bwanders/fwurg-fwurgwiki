@@ -18,6 +18,7 @@ class action_plugin_fwurgwiki extends DokuWiki_Action_Plugin {
      */
     public function register(Doku_Event_Handler &$controller) {
         $controller->register_hook('COMMON_PAGETPL_LOAD', 'BEFORE', $this, '_template_load');
+				$controller->register_hook('DOKUWIKI_STARTED', 'BEFORE', $this, '_postinit');
     }
 
     public function _template_load(&$event, $param) {
@@ -33,4 +34,10 @@ class action_plugin_fwurgwiki extends DokuWiki_Action_Plugin {
             $event->data['doreplace'] = false;
         }
     }
+
+		public function _postinit(&$event, $param) {
+        // reset the purge flag if scour is set
+        // this counters the unset of (inc/init.php:176)
+        if(isset($_REQUEST['scour'])) $_REQUEST['purge'] = true;
+		}
 }

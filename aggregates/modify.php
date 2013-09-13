@@ -20,7 +20,7 @@ class plugin_strata_aggregate_modify extends plugin_strata_aggregate {
 
     function getInfo() {
         return array(
-            'desc'=>'Modifies every elements by replacing it with the hinted pattern.',
+            'desc'=>'Modifies every element by replacing it with the hinted pattern.',
 			'hint'=>'a replacement pattern, use {} as placeholder for the old value',
             'tags'=>array()
         );

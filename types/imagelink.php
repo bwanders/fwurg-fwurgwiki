@@ -21,6 +21,16 @@ class plugin_strata_type_imagelink extends plugin_strata_type_page {
             }
         }
 
+        // fall back to using normal page name
+        if($heading == null && useHeading('content')) {
+            $heading = p_get_first_heading($value);
+        }
+
+        // fall back to using page id
+        if($heading == null) {
+            $heading = $value;
+        }
+
         $images = $T->fetchTriples($value, 'Image');
         if($images) {
             $image = $images[0]['object'];

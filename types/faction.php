@@ -12,10 +12,11 @@ if(!defined('DOKU_INC')) die('Meh.');
 class plugin_strata_type_faction extends plugin_strata_type_page {
     function render($mode, &$R, &$T, $value, $hint) {
         $heading = null;
+				$util =& plugin_load('helper', 'strata_util');
 
         // only use heading if allowed by configuration
         if(useHeading('content')) {
-            $titles = $T->fetchTriples($value, $T->getTitleKey());
+            $titles = $T->fetchTriples($value, $util->getTitleKey());
             if($titles) {
                 $heading = $titles[0]['object'];
             }

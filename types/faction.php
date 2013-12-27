@@ -38,7 +38,7 @@ class plugin_strata_type_faction extends plugin_strata_type_page {
             'align'=>null,
             'width'=>null,
             'height'=>null,
-            'cache'=>'nocache',
+            'cache'=>null,
             'linking'=>'nolink'
         ));
     }

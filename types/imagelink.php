@@ -59,7 +59,7 @@ class plugin_strata_type_imagelink extends plugin_strata_type_page {
             'align'=>null,
             'width'=>$size,
             'height'=>$size,
-            'cache'=>'nocache',
+            'cache'=>null,
             'linking'=>'nolink'
         ));
     }

@@ -12,7 +12,7 @@ if(!defined('DOKU_INC')) die('Meh.');
 class plugin_strata_type_imagelink extends plugin_strata_type_page {
     function render($mode, &$R, &$T, $value, $hint) {
         $heading = null;
-				$util =& plugin_load('helper','strata_util');
+        $util =& plugin_load('helper','strata_util');
 
         // only use heading if allowed by configuration
         if(useHeading('content')) {
@@ -32,16 +32,20 @@ class plugin_strata_type_imagelink extends plugin_strata_type_page {
             $heading = $value;
         }
 
+        list($hint_size, $hint_default) = explode('::', $hint, 2);
+
         $images = $T->fetchTriples($value, 'Image');
         if($images) {
             $image = $images[0]['object'];
+        } else {
+            $image = $hint_default;
         }
 
         $size = 48;
-        if($hint == 'full') $size = null;
-        if($hint == 'icon') $size = 16;
+        if($hint_size == 'full') $size = null;
+        if($hint_size == 'icon') $size = 16;
 
-        if(is_numeric($hint)) $size = max(16, min((int)$hint, 300) );
+        if(is_numeric($hint_size)) $size = max(16, min((int)$hint_size, 300) );
 
         if(preg_match('#^(https?|ftp)#i', $image)) {
             $type = 'externalmedia';
@@ -66,7 +70,7 @@ class plugin_strata_type_imagelink extends plugin_strata_type_page {
 
     function getInfo() {
         return array(
-            'desc'=>'Displays the \'Image\' field of the reference as a link.',
+            'desc'=>'Displays the \'Image\' field of the reference as a link, the second hint is a default image to use.',
             'hint'=>'\'normal\', \'icon\', a number between 16 and 300, or \'full\'. Defaults to \'normal\'.'
         );
     }

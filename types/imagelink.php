@@ -18,7 +18,7 @@ class plugin_strata_type_imagelink extends plugin_strata_type_page {
         if(useHeading('content')) {
             $titles = $T->fetchTriples($value, $util->getTitleKey());
             if($titles) {
-                $heading = $titles[0]['object'];
+                $heading = ':'.$titles[0]['object'];
             }
         }
 

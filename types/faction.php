@@ -33,7 +33,7 @@ class plugin_strata_type_faction extends plugin_strata_type_page {
         // internallink resolves page names, but the name is already resolved.)
         $R->internallink(':'.$value, array(
             'type'=>'externalmedia',
-            'src'=>"http://www.fwurg.net/images/special/logo/{$value}/{$size}x{$size}.png",
+            'src'=>"https://www.fwurg.net/images/special/logo/{$value}/{$size}x{$size}.png",
             'title'=>$heading,
             'align'=>null,
             'width'=>null,
